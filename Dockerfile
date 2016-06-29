@@ -11,7 +11,7 @@ MAINTAINER Mark Hummel <mdh@raquette.com>
 #ENV WAIT_FOR_SERVER yes
 #
 RUN apt-get update \
-    && apt-get install -yq git nginx php5-fpm php5-cli php5-curl \
+    && apt-get install -yq git nginx php5-fpm php5-cli php5-curl curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/* 
