@@ -16,7 +16,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/* 
 
-RUN mkdir /var/log/dyndns \
+RUN mkdir /usr/share/nginx/html \
     && chown -R www-data:www-data /var/log/dyndns \
     && chmod -R 770 /var/log/dyndns \
     && git clone https://github.com/digitalm3/DigitalOcean_dyndns nic \
