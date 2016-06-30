@@ -25,6 +25,7 @@ RUN mkdir /var/log/dyndns \
     && php composer.phar install
 
 ADD default /etc/nginx/sites-enabled/default
+RUN rm -rf /usr/share/nginx/html/nic/digitalocean.config.php
 VOLUME /usr/share/nginx/html/nic/digitalocean.config.php
 
 EXPOSE 80
