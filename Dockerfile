@@ -30,5 +30,5 @@ VOLUME /usr/share/nginx/html/nic/digitalocean.config.php
 
 EXPOSE 80
 
-CMD [ "nginx", "-g", "daemon off ]"
+CMD [ "nginx", "-g", "daemon off;" ]
 
