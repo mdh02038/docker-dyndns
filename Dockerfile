@@ -27,5 +27,7 @@ RUN mkdir /var/log/dyndns \
 ADD default /etc/nginx/sites-enabled/default
 VOLUME /usr/share/nginx/html/nic/digitalocean.config.php
 
+EXPOSE 80
+
 CMD [ "nginx", "-g", "daemon off ]"
 
