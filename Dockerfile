@@ -31,5 +31,5 @@ VOLUME /usr/share/nginx/html/nic/digitalocean.config.php
 
 EXPOSE 80
 
-CMD [ "/usr/bash", "/startup.sh" ]
+CMD [ "/bin/bash", "/startup.sh" ]
 
