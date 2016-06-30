@@ -24,11 +24,12 @@ RUN mkdir /var/log/dyndns \
     && cd nic && curl -sS https://getcomposer.org/installer | php \
     && php composer.phar install
 
+ADD startup.sh /startup.sh
 ADD default /etc/nginx/sites-enabled/default
 RUN rm -rf /usr/share/nginx/html/nic/digitalocean.config.php
 VOLUME /usr/share/nginx/html/nic/digitalocean.config.php
 
 EXPOSE 80
 
-CMD [ "nginx", "-g", "daemon off;" ]
+CMD [ "/usr/bash", "/startup.sh" ]
 
