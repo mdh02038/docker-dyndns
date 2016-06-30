@@ -22,8 +22,9 @@ RUN mkdir /var/log/dyndns \
     && cd /usr/share/nginx/html \
     && git clone https://github.com/digitalm3/DigitalOcean_dyndns nic \
     && cd nic && curl -sS https://getcomposer.org/installer | php \
-    && /bin/sh -c  composer.phar install
+    && php composer.phar install
 
+ADD default /etc/nginx/sites-enabled/default
 #VOLUME /status
 #
 #ADD start.sh /start.sh
