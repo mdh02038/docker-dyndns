@@ -25,9 +25,7 @@ RUN mkdir /var/log/dyndns \
     && php composer.phar install
 
 ADD default /etc/nginx/sites-enabled/default
-#VOLUME /status
-#
-#ADD start.sh /start.sh
-#ADD wait.sh /wait.sh
-#
-#ENTRYPOINT ["/start.sh"]
+VOLUME /usr/share/nginx/html/nic/digitalocean.config.php
+
+CMD [ "nginx", "-g", "daemon off ]"
+
