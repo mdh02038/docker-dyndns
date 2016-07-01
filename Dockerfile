@@ -19,6 +19,7 @@ RUN apt-get update \
 RUN mkdir /var/log/dyndns \
     && chown -R www-data:www-data /var/log/dyndns \
     && chmod -R 770 /var/log/dyndns \
+    && touch /var/log/dyndns/DigitalOcean.DynDns.log \
     && cd /usr/share/nginx/html \
     && git clone https://github.com/digitalm3/DigitalOcean_dyndns nic \
     && cd nic && curl -sS https://getcomposer.org/installer | php \
