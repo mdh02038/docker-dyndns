@@ -21,7 +21,8 @@ RUN mkdir /var/log/dyndns \
     && touch /var/log/dyndns/DigitalOcean.DynDns.log \
     && chown -R www-data:www-data /var/log/dyndns \
     && chmod -R 770 /var/log/dyndns \
-    && cd /usr/share/nginx/html \
+    && mkdir -p /install \
+    && cd /install \
     && git clone https://github.com/digitalm3/DigitalOcean_dyndns nic \
     && cd nic && curl -sS https://getcomposer.org/installer | php \
     && php composer.phar install
