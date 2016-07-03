@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM php:fpm
 MAINTAINER Mark Hummel <mdh@raquette.com>
 
 #ENV DEBIAN_FRONTEND noninteractive
@@ -11,7 +11,8 @@ MAINTAINER Mark Hummel <mdh@raquette.com>
 #ENV WAIT_FOR_SERVER yes
 #
 RUN apt-get update \
-    && apt-get install -yq git nginx php5-fpm php5-cli php5-curl curl \
+#    && apt-get install -yq git nginx php5-fpm php5-cli php5-curl curl \
+    && apt-get install -yq git \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/* 
@@ -25,12 +26,10 @@ RUN mkdir /var/log/dyndns \
     && cd nic && curl -sS https://getcomposer.org/installer | php \
     && php composer.phar install
 
-ADD startup.sh /startup.sh
-ADD default /etc/nginx/sites-enabled/default
-RUN rm -rf /usr/share/nginx/html/nic/digitalocean.config.php
-VOLUME /usr/share/nginx/html/nic/digitalocean.config.php
-
-EXPOSE 80
-
-CMD [ "/bin/bash", "/startup.sh" ]
+#ADD startup.sh /startup.sh
+#ADD default /etc/nginx/sites-enabled/default
+#RUN rm -rf /usr/share/nginx/html/nic/digitalocean.config.php
+#VOLUME /usr/share/nginx/html/nic/digitalocean.config.php
+#EXPOSE 80
+#CMD [ "/bin/bash", "/startup.sh" ]
 
