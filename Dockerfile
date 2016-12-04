@@ -21,12 +21,15 @@ RUN mkdir /var/log/dyndns \
     && touch /var/log/dyndns/DigitalOcean.DynDns.log \
     && chown -R www-data:www-data /var/log/dyndns \
     && chmod -R 770 /var/log/dyndns \
-    && mkdir -p /install \
-    && cd /install \
+    && mkdir -p /usr/share/nginx/html \
+    && cd /usr/share/nginx/html \
     && git clone https://github.com/digitalm3/DigitalOcean_dyndns nic \
     && cd nic && curl -sS https://getcomposer.org/installer | php \
     && php composer.phar install
-
+    && cd ..
+    && php composer.phar require toin0u/digitalocean-v2:~2.0
+    && php composer.phar require kriswallsmith/buzz:~0.10
+    
 #ADD startup.sh /startup.sh
 #ADD default /etc/nginx/sites-enabled/default
 #RUN rm -rf /usr/share/nginx/html/nic/digitalocean.config.php
